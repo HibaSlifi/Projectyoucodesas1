@@ -190,7 +190,42 @@ function AfficherMenu (){
     console.log(`3.Afficher les tickets`);
     console.log(`4.Annuler un ticket`);
     console.log(`5.Rechercher un trajets`);
-    console.log(`6.Filter les trajets`)`;
+    console.log(`6.Filter les trajets`);
     console.log(`7.Trier les trajets`);
     console.log(`0.Quiter`);
+    let choix=propmt(`selectionner votre choix:`);
+
 }
+function AfficherTrajets(trips){
+    for(i=0;i<trips.length;i++){
+        console.log(`id:${trips.id}`);
+        console.log(`departure:${trips.departure}`);
+        console.log(`destination:${trips.destination}`);
+        console.log(`departureTime:${departureTime}`);
+        console.log(`arrivalTime:${arrivalTime}`);
+        console.log(`price:${price}`);
+        condole.log(`availableSeats:${availableSeats}`);
+
+
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
