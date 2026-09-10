@@ -196,36 +196,80 @@ function AfficherMenu (){
     let choix=propmt(`selectionner votre choix:`);
 
 }
-function AfficherTrajets(trips){
-    for(i=0;i<trips.length;i++){
+function AfficherTrajets(){
+    for(let i=0;i<trips.length;i++){
         console.log(`id:${trips.id}`);
         console.log(`departure:${trips.departure}`);
         console.log(`destination:${trips.destination}`);
         console.log(`departureTime:${departureTime}`);
         console.log(`arrivalTime:${arrivalTime}`);
         console.log(`price:${price}`);
-        condole.log(`availableSeats:${availableSeats}`);
+        console.log(`availableSeats:${availableSeats}`);
 
 
     }
    
 }
+function AfficherTrajet(identifiant){
+
+    for(i=0;i<trips.length;i++){
+    function afficherUnTrajet(trips, identifiant) {
+
+    for (let i = 0; i < trips.length; i++) {
+
+        if (trips[i].id === identifiant) {
+
+            console.log(`id : ${trips[i].id}`);
+            console.log(`departure : ${trips[i].departure}`);
+            console.log(`destination : ${trips[i].destination}`);
+            console.log(`departureTime : ${trips[i].departureTime}`);
+            console.log(`arrivalTime : ${trips[i].arrivalTime}`);
+            console.log(`price : ${trips[i].price}`);
+            console.log(`availableSeats : ${trips[i].availableSeats}`);
+
+            break;
+        }
+    }
+}
+    }
+}
+const tickets = [];
+ticketsuivant=1;
+
+function Acheterunticket(){
+     let nom propmt(saisis nom du passager:);
+      let identifant Number(propmt(saisis identifiaant du trajet:));
+       trajettrouve=null;
+        for(i=0;i<trips.length;i++){
+            
+             if(trips.id===identifiant){
+                trajettrouve=trips[i];
+                afficherUnTrajet(identifiant) ;
+            }else{
+    console.log(`trajet introuvable`);
+    return;
+
+   }
+}
+    
+    if(trajettrouve.availableSeats<=0){
+            console.log(`Train complet.`);
+            return;
+    }else{
+    const ticket={
+id:ticketsuivant,
+passengerName:nom , 
+tripId:identifiant , 
+seatNumber:trajettrouve.availableSeats-trajettrouve.availableSeats+1 , 
+price:trajettrouve.price
+}}
+tickets.push(ticket);
+trajettrouve.availableSeats=trajettrouve.availableSeats-1;
+
+
+    }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
