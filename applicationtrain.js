@@ -1,4 +1,4 @@
-const prompt=require(prompt-sync)();
+const prompt = require("prompt-sync")();
 const trips = [
     {
         id: 1,
@@ -193,7 +193,7 @@ function AfficherMenu (){
     console.log(`6.Filter les trajets`);
     console.log(`7.Trier les trajets`);
     console.log(`0.Quiter`);
-    let choix=propmt(`selectionner votre choix:`);
+   
 
 }
 function AfficherTrajets(){
@@ -210,10 +210,8 @@ function AfficherTrajets(){
     }
    
 }
-function AfficherTrajet(identifiant){
 
-    for(i=0;i<trips.length;i++){
-    function afficherUnTrajet(trips, identifiant) {
+    function afficherUnTrajet(identifiant) {
 
     for (let i = 0; i < trips.length; i++) {
 
@@ -227,18 +225,18 @@ function AfficherTrajet(identifiant){
             console.log(`price : ${trips[i].price}`);
             console.log(`availableSeats : ${trips[i].availableSeats}`);
 
-            break;
+
         }
     }
 }
-    }
-}
+    
+
 const tickets = [];
 ticketsuivant=1;
 
 function Acheterunticket(){
-     let nom propmt(saisis nom du passager:);
-      let identifant Number(propmt(saisis identifiaant du trajet:));
+     let nom= prompt(`saisis nom du passager:`);
+      let identifant= Number(prompt(`saisis identifiaant du trajet:`));
        trajettrouve=null;
         for(i=0;i<trips.length;i++){
             
@@ -257,16 +255,27 @@ function Acheterunticket(){
             return;
     }else{
     const ticket={
-id:ticketsuivant,
-passengerName:nom , 
-tripId:identifiant , 
-seatNumber:trajettrouve.availableSeats-trajettrouve.availableSeats+1 , 
-price:trajettrouve.price
+id: ticketsuivant,
+passengerName: nom , 
+tripId: identifiant , 
+seatNumber: trajettrouve.availableSeats-trajettrouve.availableSeats+1 , 
+price: trajettrouve.price
 }}
 tickets.push(ticket);
 trajettrouve.availableSeats=trajettrouve.availableSeats-1;
 
 
+    }
+    function AfficherTickets(tickets){
+
+        if(tickets.length>0){
+            for(i=0;i<tickets.length;i++){
+                console.log(`tickets[i]`);
+             }
+        }else{
+            console.log(`Aucun ticket enregistré. `);
+
+        }
     }
 
 
