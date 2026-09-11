@@ -309,3 +309,14 @@ if(id===null){
     console.log(`Ticket introuvable`);
    
 }}
+function rechercherunticket(){
+    let nom=prompt(`entrer le nom du passager`);
+    for(i=0;i<tickets.length;i++){
+        if(tickets[i].passengerName===nom){
+            console.log(tickets[i]);
+
+        }
+
+    }
+
+}
