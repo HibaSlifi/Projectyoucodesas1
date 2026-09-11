@@ -281,7 +281,7 @@ function Affichertikects() {
         console.log("--------------------");
     }
 }
-function annulerticket(){
+function Annulerticket(){
     let id=null;
 let idticket=Number(prompt(`saisis identifiant ticket:`));
  for(let i=0;i<tickets.length;i++){
@@ -307,7 +307,7 @@ if(id===null){
     console.log(`Ticket introuvable`);
    
 }}
-function rechercherunticket(){
+function Rechercherunticket(){
     let nom=prompt(`entrer le nom du passager`);
     for(let i=0;i<tickets.length;i++){
         if(tickets[i].passengerName===nom){
@@ -318,7 +318,7 @@ function rechercherunticket(){
     }
 
 }
-function filtrertrajets(){
+function Filtrertrajets(){
     let villedepart=prompt(`entrer ville depart:`);
     for(let i=0;i<trips.length;i++){
         if(trips[i].departure===villedepart){
@@ -326,21 +326,81 @@ function filtrertrajets(){
         }
     }
 }
+function Triertrajets() {
 
-function triertrajets(){
-    
-    for(let i=0;i<trips.length-1;i++){
-        for(let j=0;j<trips.length-i-1;j++){
-     if(trips[j].price>trips[j+1].price){
-       let temp=trips[j];
-        trips[j]=trips[j+1];
-        trips[j+1]=temp;
+    let tableauTrie = [];
 
+    for (let i = 0; i < trips.length; i++) {
+        tableauTrie.push(trips[i]);
+    }
 
-     }
+    for (let i = 0; i < tableauTrie.length - 1; i++) {
+
+        for (let j = 0; j < tableauTrie.length - 1 - i; j++) {
+
+            if (tableauTrie[j].price > tableauTrie[j + 1].price) {
+
+                let temp = tableauTrie[j];
+
+                tableauTrie[j] = tableauTrie[j + 1];
+
+                tableauTrie[j + 1] = temp;
+            }
         }
     }
-    for(let i=0;i<trips.length;i++){
-        console.log(`${trips[i].departure} →${trips[i].destination}`);
+
+    console.log("=== TRAJETS TRIÉS PAR PRIX ===");
+
+    for (let i = 0; i < tableauTrie.length; i++) {
+
+        console.log(
+            `ID: ${tableauTrie[i].id} | ${tableauTrie[i].departure} → ${tableauTrie[i].destination} | Prix: ${tableauTrie[i].price} DH`
+        );
     }
 }
+let choix;
+do {
+
+    AfficherMenu();
+
+    choix = Number(prompt("Votre choix : "));
+
+    switch (choix) {
+
+        case 1:
+            AfficherTrajets();
+            break;
+
+        case 2:
+            Acheterunticket();
+            break;
+
+        case 3:
+            Affichertikects();
+            break;
+
+        case 4:
+            Annulerticket();
+            break;
+
+        case 5:
+            Rechercherunticket();
+            break;
+
+        case 6:
+            Filtrertrajets();
+            break;
+
+        case 7:
+            Triertrajets();
+            break;
+
+        case 0:
+            console.log("Au revoir !");
+            break;
+
+        default:
+            console.log("Choix invalide.");
+    }
+
+} while (choix !== 0);
