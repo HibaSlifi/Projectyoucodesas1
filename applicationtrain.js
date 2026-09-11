@@ -282,9 +282,30 @@ console.log(`Prix:${tickets[i].price}`);
 
 }}else{ 
     console.log(`Aucun ticket enregistrè.`)
-}
+}}
+function annulerticket(){
+    let id=null;
+let idticket=Number(prompt(`saisis identifiant ticket:`));
+ for(let i=0;i<tickets.length;i++){
+    
+    if(idticket===tickets[i].id){
+        id=idticket;
+         let tripid=tickets[i].tripId;
+         for(let j=0;j<trips.length;j++){
+            if(tripid===trips[j].id){
+                 tickets.splice(i,1);
+            trips[j].availableSeats=trips[j].availableSeats+1;
+            console.log(`ticket annullé avec succés.`);
+            break;
+
+            } }
+break;
 
 
-    
 }
-    
+}
+
+if(id===null){
+    console.log(`Ticket introuvable`);
+   
+}}
