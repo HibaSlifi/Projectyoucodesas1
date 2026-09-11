@@ -320,3 +320,11 @@ function rechercherunticket(){
     }
 
 }
+function filtrertrajets(){
+    let villedepart=prompt(`entrer ville depart:`);
+    for(i=0;i<trips.length;i++){
+        if(trips[i].departure===villedepart){
+            console.log(`${villedepart}→${trips[i].destination}`)
+        }
+    }
+}
