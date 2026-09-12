@@ -7,7 +7,8 @@ const trips = [
         departureTime: "07:30",
         arrivalTime: "08:30",
         price: 25,
-        availableSeats: 50
+        availableSeats: 50,
+    
     },
     {
         id: 2,
@@ -26,6 +27,7 @@ const trips = [
         arrivalTime: "13:00",
         price: 140,
         availableSeats: 50
+
     },
     {
         id: 4,
@@ -237,11 +239,19 @@ function Acheterunticket(){
     console.log("Train complet.");
     return;
 }
+    let nbrplace = 1;
+    for (let i = 0; i < tickets.length; i++) {
+        if(tickets[i].tripId == identifiant && nbrplace == tickets[i].seatNumber )
+        {
+            nbrplace++;
+            i = -1;
+        }
+    }
     const ticket = {
         id: ticketsuivant,
         passengerName: nom,
         tripId: identifiant,
-        seatNumber:  50- trajettrouve.availableSeats + 1,
+        seatNumber:  nbrplace,
         price: trajettrouve.price
     
     };
